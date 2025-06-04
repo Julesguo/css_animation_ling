@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12_button_hover_effect</title>
+    <link rel="stylesheet" href="../css/button.css" />
+    <style>
+      .container{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .btn{
+        color: #F55A47;
+      }
+      .btn:before,
+      .btn:after {
+        content: "";
+        position: absolute;     
+        width: 100%;
+        height: 100%;
+        background: #287EFF;
+        z-index: -1;
+        mix-blend-mode: multiply;
+             
+      }
+      .btn:before{
+        top: -3px;
+        left: -3px; 
+      }
+      .btn:after{
+        right: 0;
+        box-shadow: 100px 0 0 #ff0;
+      }
+      .btn:hover:before{
+        left: 50%;
+        transform:translateX(-50%) translateY(-50%);
+      }
+      .btn:hover:after{
+        right: 50%;
+        transform:translateX(50%) translateY(-50%);
+      }
+
+      .btn span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ff0;
+        border-radius: 8px;
+        transform: scale(0);
+        transition: all 0.5s;
+        z-index: -2;
+      }
+      .btn:hover{
+        transition-delay: 0.4s;
+        color: white;
+      }
+      .btn:hover span{
+        transform: scale(1);
+        transition-delay: 0.4s;
+      }
+      
+      
+    </style>
+  </head>
+  <body class="dark">
+    <div class="container">
+      <a href="#" class="btn">button hover effect</a>
+    </div>
+  </body>
+</html>
